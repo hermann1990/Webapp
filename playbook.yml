@@ -1,0 +1,26 @@
+---
+- name: apt-update
+ apt:
+ update_cache: yes
+- name: Install Docker
+ apt:
+ name: docker.io
+ state: present
+- name: Create new directory
+ file:
+ path: /home/ubuntu/dockDeploy/
+ state: directory
+- name: Copy war file
+ copy:
+ src: addressbook.war
+ dest: /home/ubuntu/dockDeploy/
+- name: Copy Dockerfile
+ copy:
+ src: Dockerfile
+ dest: /home/ubuntu/dockDeploy/
+- name: Build Docker Image
+ command: chdir=/home/ubuntu/dockDeploy/ docker build . -t 
+edureka/inclass
+- name: Run Docker Container
+ command: chdir=/home/ubuntu/dockDeploy/ docker run -it -d -p 
+8085:8080 Test/inclass
