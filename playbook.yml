@@ -22,6 +22,6 @@
         src: Dockerfile
         dest: /home/ubuntu/dockDeploy/
     - name: Build Docker Image
-      command: chdir=/home/ubuntu/dockDeploy/ docker build . -t Test/inclass
+      command: chdir=/home/ubuntu/dockDeploy/ docker build . -t test/inclass
     - name: Run Docker Container
-      command: chdir=/home/ubuntu/dockDeploy/ docker run -it -d -p 8085:8080 Test/inclass
+      command: chdir=/home/ubuntu/dockDeploy/ docker run -it -d -p 8085:8080 test/inclass
