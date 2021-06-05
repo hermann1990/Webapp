@@ -21,6 +21,8 @@
       copy:
         src: Dockerfile
         dest: /home/ubuntu/dockDeploy/
+    - name: start docker
+      command: systemctl=start docker
     - name: Build Docker Image
       command: chdir=/home/ubuntu/dockDeploy/ docker build . -t test/inclass
     - name: Run Docker Container
